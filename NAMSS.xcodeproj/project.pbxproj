@@ -95,6 +95,7 @@
 		27F6D6DE224FCDF90090DB91 /* bootstrap.min.css in Resources */ = {isa = PBXBuildFile; fileRef = 27F6D6DD224FCDF80090DB91 /* bootstrap.min.css */; };
 		27FB15C4226C093100DC810C /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FB15C3226C093100DC810C /* SectionHeader.swift */; };
 		765CB47E2530E13300B3BD52 /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765CB47D2530E13300B3BD52 /* UITableView+Ext.swift */; };
+		7668A93626542EDD0099AA7B /* OnlineClassSubmitLinkVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7668A93526542EDD0099AA7B /* OnlineClassSubmitLinkVC.swift */; };
 		769C445926516EEB0069D125 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769C445826516EEB0069D125 /* String+Ext.swift */; };
 		769C445D26517F620069D125 /* AppStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769C445C26517F620069D125 /* AppStoryboard.swift */; };
 		769C4460265181DC0069D125 /* ClassActivity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 769C445F265181DC0069D125 /* ClassActivity.storyboard */; };
@@ -220,6 +221,7 @@
 		27FB15C3226C093100DC810C /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 		3BE3B935C78FB34833AAF354 /* Pods-MMIHS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMIHS.debug.xcconfig"; path = "Target Support Files/Pods-MMIHS/Pods-MMIHS.debug.xcconfig"; sourceTree = "<group>"; };
 		765CB47D2530E13300B3BD52 /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
+		7668A93526542EDD0099AA7B /* OnlineClassSubmitLinkVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineClassSubmitLinkVC.swift; sourceTree = "<group>"; };
 		769C445826516EEB0069D125 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		769C445C26517F620069D125 /* AppStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoryboard.swift; sourceTree = "<group>"; };
 		769C445F265181DC0069D125 /* ClassActivity.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ClassActivity.storyboard; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 				27B3DD4F226E17580047B416 /* NoticeContentVC.swift */,
 				27115FB122462A9A00DECAA6 /* NoticeVC.swift */,
 				769C4465265183140069D125 /* OnlineClassroomVC.swift */,
+				7668A93526542EDD0099AA7B /* OnlineClassSubmitLinkVC.swift */,
 				86AC0F2D23B76EAB00A4F1D2 /* ParentFeedbackVC.swift */,
 				273DD6772265584900A013A4 /* PaymentVC.swift */,
 				2714D5A2227DB7850013D1B3 /* PersonalAttendanceVC.swift */,
@@ -636,6 +639,7 @@
 				868BD03123B84F0800E4626F /* SendFeedbackPopupVC.swift in Sources */,
 				27033D5B2261DDE1001A20D1 /* Contact.swift in Sources */,
 				272DC9B522BE7718008C2320 /* Media.swift in Sources */,
+				7668A93626542EDD0099AA7B /* OnlineClassSubmitLinkVC.swift in Sources */,
 				271BD53522473D9E00029A60 /* StaffAttendanceReportVC.swift in Sources */,
 				27B9E20D2246B36F0098CC24 /* CalendarVC.swift in Sources */,
 				86DD24B3233A52C200BA171E /* FrontPageSectionHeader.swift in Sources */,

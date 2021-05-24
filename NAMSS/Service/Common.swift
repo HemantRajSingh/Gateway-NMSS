@@ -44,6 +44,8 @@ func openView(state:UIViewController,viewName:String){
     var storyboard = AppStoryboard.Main.instance
     if(viewName == "noticeVC" || viewName == "calendarVC"){
         storyboard = AppStoryboard.MainPage.instance
+    } else if(viewName == "OnlineClassSubmitLinkVC") {
+        storyboard = AppStoryboard.ClassActivity.instance
     }
     let VC =  storyboard.instantiateViewController(withIdentifier: viewName)
     state.navigationController?.pushViewController(VC, animated: true)

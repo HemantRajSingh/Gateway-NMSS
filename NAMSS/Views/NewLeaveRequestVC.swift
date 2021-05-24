@@ -29,8 +29,9 @@ class NewLeaveRequestVC: UIViewController {
         super.viewDidLoad()
         let doneButton = UIBarButtonItem(title: "Submit", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.requestLeave(sender:)))
         self.navigationItem.rightBarButtonItem = doneButton
-        txtLeaveDesc.layer.borderColor = UIColor.black.cgColor
-        txtLeaveDesc.layer.borderWidth = 1
+        txtLeaveDesc.layer.borderColor = UIColor.lightGray.cgColor
+        txtLeaveDesc.layer.borderWidth = 1.0
+        txtLeaveDesc.layer.cornerRadius = 8;
         dateFormatter.dateFormat = "YYYY-MM-dd"
         datePickerClass1 = UIDatePicker()
         datePickerClass1?.datePickerMode = .date

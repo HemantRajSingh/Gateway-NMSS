@@ -14,12 +14,31 @@ class OnlineClassroomVC:UIViewController,UITableViewDelegate,UITableViewDataSour
     var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
     private var tableViewData = [OnlineClassSectionHeader]()
     @IBOutlet var tblTable: UITableView!
+    @IBOutlet weak var btnNew: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Online Classroom"
+        
         tblTable.tableFooterView = UIView()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        if(Common.shared.userRole == "AppTeacher"){
+            btnNew.backgroundColor = .clear
+            btnNew.layer.cornerRadius = 5
+        } else {
+            btnNew.isHidden = true
+        }
+        
         self.fnShowClassrooms()
+    }
+    
+    @IBAction func btnNewClicked(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+        openView(state: self, viewName: "OnlineClassSubmitLinkVC")
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -41,7 +60,7 @@ class OnlineClassroomVC:UIViewController,UITableViewDelegate,UITableViewDataSour
             tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
             cell?.textLabel?.text = tableViewData[indexPath.section].title
-            cell?.textLabel?.textColor = UIColor.black
+            cell?.textLabel?.textColor = UIColor.gray
             cell?.textLabel?.textAlignment = .left
             cell?.textLabel?.font = UIFont.boldSystemFont(ofSize: 15.0)
             cell?.backgroundView?.backgroundColor = UIColor.blue
@@ -85,23 +104,59 @@ class OnlineClassroomVC:UIViewController,UITableViewDelegate,UITableViewDataSour
             
         } else {
             let obj:OnlineClass = tableViewData[indexPath.section].sectionData[indexPath.row - 1]
-            if(obj.status.lowercased() == "running"){
-                fnPostApiWithJson(url: appUrl + "SubmitOnlineClassJoiningRecord?userid=\(Common.shared.userId)&classjoiningid=\(obj.classId)", json: "", completionHandler:{(res,json) -> Void in
-                        if(res && json.stringValue.lowercased().contains("true")){
-                            self.showToast(message: "Attendance done!")
-                            let url = URL(string: obj.joiningLink)!
-                            if UIApplication.shared.canOpenURL(url) {
-                                UIApplication.shared.open(url, options: [:], completionHandler: { (success) in
-                                     print("Open url : \(success)")
-                                })
+            if(obj.status.lowercased() == "pending" && Common.shared.userRole.lowercased() == "appteacher"){
+                //call UpdateOnlineClassStatus api to set to running
+                let alert = UIAlertController(title: "Confirm", message: "Update class to Running?", preferredStyle: .actionSheet)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
+                    self.callUpdateClassApi(classjoiningid: obj.id, status: obj.status.lowercased().capitalizingFirstLetter())
+                }))
+                alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
+            } else if(obj.status.lowercased() == "running"){
+                if(Common.shared.userRole.lowercased() == "appteacher"){
+                    //call UpdateOnlineClassStatus api to set to completed
+                    
+                    let alert = UIAlertController(title: "Confirm", message: "Update class to Completed?", preferredStyle: .actionSheet)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
+                        self.callUpdateClassApi(classjoiningid: obj.id, status: obj.status.lowercased().capitalizingFirstLetter())
+                    }))
+                    alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                    
+                } else if (Common.shared.userRole.lowercased() == "appstudent") {
+//                    http://202.51.74.57:908/api/AppData/SumitOnlineClassJoiningRecord?userid=991&classjoiningid=1
+                    fnPostApiWithUrlEcoding(url: appUrl + "SumitOnlineClassJoiningRecord?userid=\(Common.shared.userId)&classjoiningid=\(obj.id)", completionHandler:{(res,json) -> Void in
+                            if(res && json.stringValue.lowercased().contains("true")){
+                                self.showToast(message: "Attendance done!")
+                                let url = URL(string: obj.joiningLink)!
+                                if UIApplication.shared.canOpenURL(url) {
+                                    UIApplication.shared.open(url, options: [:], completionHandler: { (success) in
+                                         print("Open url : \(success)")
+                                    })
+                                }
+                            }else{
+                                displayAlertMessage(state: self, msg: "Server error while doing attendance. Please Try Again!")
                             }
-                        }else{
-                            displayAlertMessage(state: self, msg: "Server error while doing attendance. Please Try Again!")
-                        }
-                    })
+                        })
+                }
             }
 //            self.dismiss(animated: true, completion: nil)
         }
+    }
+    
+    func callUpdateClassApi(classjoiningid:String, status:String){
+//        http://202.51.74.57:908/api/AppData/UpdateOnlineClassStatus?userid=1266&teacherid=2&classjoiningid=1
+        let url = appUrl + "UpdateOnlineClassStatus?userid=\(Common.shared.userId)&teacherid=\(Common.shared.teacherId)&classjoiningid=\(classjoiningid)"
+        
+        fnPostApiWithUrlEcoding(url: url, completionHandler: {(res,json)->Void in
+            if(res){
+                NAMSS.showToast(state: self, message: "Online class to \(status) successfully.")
+                self.fnShowClassrooms()
+            }else{
+                NAMSS.showToast(state: self, message: "Error updating class. Please Try again")
+            }
+        })
     }
     
     func showToast(message: String) {

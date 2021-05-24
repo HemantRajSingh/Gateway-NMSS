@@ -129,6 +129,33 @@ func fnPostApi(url:String, completionHandler: @escaping (Bool,JSON)->Void) -> Vo
     }
 }
 
+func fnPostApiWithUrlEcoding(url:String, completionHandler: @escaping (Bool,JSON)->Void) -> Void{
+    
+    var res:JSON? = nil
+    let encoded = url.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)!
+    let encodedUrl = URL(string: encoded)
+    Alamofire.request(encodedUrl!, method: .post)
+        .validate { request, response, data in
+            return .success
+        }
+        .responseJSON { response in
+            switch response.result {
+            case .success:
+                if let value = response.result.value {
+                    res = JSON(value)
+                    if(res!["ExceptionType"].stringValue == "" && res!["Message"].stringValue == ""){
+                        completionHandler(true,res ?? [])
+                    }else{
+                        completionHandler(false,res ?? [])
+                    }
+                }
+            case .failure(let error):
+                print(error)
+                completionHandler(false,res ?? [])
+            }
+    }
+}
+
 func fnPostApiWithJson(url:String, json:JSON, completionHandler: @escaping (Bool,JSON)->Void) -> Void{
     
     var request = URLRequest(url: URL(string: url)!)

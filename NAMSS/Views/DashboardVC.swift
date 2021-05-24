@@ -59,6 +59,7 @@ class DashboardVC: UIViewController {
         }else if userRole == "AppTeacher"{
             menus.append(Menu(menuId:3,view:"personalAttendanceVC", menuImage: #imageLiteral(resourceName: "ic_attendance2"), menuTitle: "Attendance", menuDesc: "Personal Attendance"))
             menus.append(Menu(menuId:4,view:"attendanceVC", menuImage: #imageLiteral(resourceName: "ic_attendance2"), menuTitle: "Attendance", menuDesc: "Class Attendance"))
+            menus.append(Menu(menuId:8,view:"OnlineClassVC", menuImage: #imageLiteral(resourceName: "ic_onlineclass"), menuTitle: "Online Classroom", menuDesc: "Online Classroom"))
             menus.append(Menu(menuId:5,view:"assignmentVC", menuImage: #imageLiteral(resourceName: "ic_invoice"), menuTitle: "Assignment", menuDesc: "Assignment"))
             menus.append(Menu(menuId:6,view:"leaveRequestVC", menuImage: #imageLiteral(resourceName: "ic_assignment"), menuTitle: "Leave Requests", menuDesc: "Leave Requests"))
             menus.append(Menu(menuId:8,view:"messageVC", menuImage: #imageLiteral(resourceName: "ic_student"), menuTitle: "Message", menuDesc: "Send Message"))
