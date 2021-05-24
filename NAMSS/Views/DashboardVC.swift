@@ -199,7 +199,8 @@ class DashboardVC: UIViewController {
             showToast(message: "Still under construction!")
         } else if(viewName == "assignmentVC"){
             if(UserDefaults.standard.string(forKey: "userRole") == "AppStudent" || UserDefaults.standard.string(forKey: "userRole") == "AppParent"){
-                let VC =  storyboard.instantiateViewController(withIdentifier: viewName)
+                storyboard = AppStoryboard.ClassActivity.instance
+                let VC =  storyboard.instantiateViewController(withIdentifier: "AssignmentV2VC")
                 self.navigationController?.pushViewController(VC, animated: true)
             }else{
                 let VC =  storyboard.instantiateViewController(withIdentifier: "newAssignmentVC")

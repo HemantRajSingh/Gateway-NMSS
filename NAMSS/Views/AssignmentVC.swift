@@ -72,7 +72,7 @@ class AssignmentVC: UIViewController {
         dateFormatter.dateFormat = "YYYY-MM-dd"
         dropdownDate.text = dateFormatter.string(from: datePickerField.date)
 //        view.endEditing(true)
-        fnGetAssignments(url: appUrl + "GetClassHomework?userid=\(Common.shared.userId)&studentid=\(Common.shared.studentId)&date=\(dateFormatter.string(from: datePickerField.date))")
+        fnGetAssignments(url: appUrlV2 + "GetClassHomework?userid=\(Common.shared.userId)&studentid=\(Common.shared.studentId)&date=\(dateFormatter.string(from: datePickerField.date))")
     }
     
     func fnGetAssignments(url:String){

@@ -104,6 +104,10 @@
 		769C446D265187BC0069D125 /* OnlineClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769C446C265187BC0069D125 /* OnlineClass.swift */; };
 		769C4471265199760069D125 /* OnlineClassSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769C4470265199760069D125 /* OnlineClassSectionHeader.swift */; };
 		76B9E79624322C5E00136B51 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 76B9E79524322C5E00136B51 /* GoogleService-Info.plist */; };
+		76C8975D265C2911008704BD /* AssignmentV2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C8975C265C2911008704BD /* AssignmentV2VC.swift */; };
+		76C89760265C29BE008704BD /* AssignmentV2ViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C8975F265C29BE008704BD /* AssignmentV2ViewCell.swift */; };
+		76C89763265C29D1008704BD /* AssignmentV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C89762265C29D1008704BD /* AssignmentV2.swift */; };
+		76C89767265C2CCF008704BD /* AssignmenV2SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C89766265C2CCF008704BD /* AssignmenV2SectionHeader.swift */; };
 		864D9E122337CEC400E292B4 /* MainPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 864D9E112337CEC400E292B4 /* MainPage.storyboard */; };
 		864D9E142337D56A00E292B4 /* FrontPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864D9E132337D56A00E292B4 /* FrontPageVC.swift */; };
 		8658587723B87E5700696FD5 /* FeedbackConversationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8658587623B87E5700696FD5 /* FeedbackConversationVC.swift */; };
@@ -230,6 +234,10 @@
 		769C446C265187BC0069D125 /* OnlineClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineClass.swift; sourceTree = "<group>"; };
 		769C4470265199760069D125 /* OnlineClassSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineClassSectionHeader.swift; sourceTree = "<group>"; };
 		76B9E79524322C5E00136B51 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		76C8975C265C2911008704BD /* AssignmentV2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentV2VC.swift; sourceTree = "<group>"; };
+		76C8975F265C29BE008704BD /* AssignmentV2ViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentV2ViewCell.swift; sourceTree = "<group>"; };
+		76C89762265C29D1008704BD /* AssignmentV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentV2.swift; sourceTree = "<group>"; };
+		76C89766265C2CCF008704BD /* AssignmenV2SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmenV2SectionHeader.swift; sourceTree = "<group>"; };
 		7FB29993383F19A57DDAD839 /* Pods-MMIHS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMIHS.release.xcconfig"; path = "Target Support Files/Pods-MMIHS/Pods-MMIHS.release.xcconfig"; sourceTree = "<group>"; };
 		81271A57FB2A4DCC6D13F652 /* Pods-NAMSS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NAMSS.debug.xcconfig"; path = "Target Support Files/Pods-NAMSS/Pods-NAMSS.debug.xcconfig"; sourceTree = "<group>"; };
 		864D9E112337CEC400E292B4 /* MainPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainPage.storyboard; sourceTree = "<group>"; };
@@ -313,6 +321,7 @@
 				2715802C22B8781D00601215 /* VideoHeaderView.swift */,
 				2715802822B877CF00601215 /* VideosVC.swift */,
 				952B12CF22229A3E0077C948 /* ViewController.swift */,
+				76C8975C265C2911008704BD /* AssignmentV2VC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -408,33 +417,35 @@
 			isa = PBXGroup;
 			children = (
 				952B12F32222A7E80077C948 /* Assignment.swift */,
-				27EF41B11FF9B34E00FA1267 /* ClassRoutine.swift */,
-				27EF41B5223ACFEA00FA1267 /* Menu.swift */,
-				27115FB522463D1A00DECAA6 /* Notice.swift */,
+				76C89762265C29D1008704BD /* AssignmentV2.swift */,
+				76C89766265C2CCF008704BD /* AssignmenV2SectionHeader.swift */,
 				2714F1CF224F1A1700F1D1DF /* AttendanceLog.swift */,
 				2714F1D1224F1AF300F1D1DF /* Book.swift */,
-				2714F1D3224F1C2900F1D1DF /* SimpleObject.swift */,
+				27EF41B11FF9B34E00FA1267 /* ClassRoutine.swift */,
+				27033D5A2261DDE1001A20D1 /* Contact.swift */,
 				2714F1D5224F1CA000F1D1DF /* Event.swift */,
 				2714F1D7224F1CEE00F1D1DF /* ExamRoutine.swift */,
-				2714F1D9224F1FF900F1D1DF /* Invoice.swift */,
-				27F6D6DB224F769C0090DB91 /* Staff.swift */,
-				27F0B757225A541A00DD28EA /* Student.swift */,
-				2739EAC3225FBAD500EFA210 /* LeaveTypes.swift */,
-				2739EAC5225FBBFD00EFA210 /* LeaveRequest.swift */,
-				27D320A222619226005393B1 /* Result.swift */,
-				27033D5A2261DDE1001A20D1 /* Contact.swift */,
-				27BC80E822641455004E5937 /* Library.swift */,
-				273DD67D22655D0F00A013A4 /* Payment.swift */,
-				27FB15C3226C093100DC810C /* SectionHeader.swift */,
-				272BF508229A510F00B70024 /* MessageView.swift */,
-				272BF50A229A60CF00B70024 /* StudentLog.swift */,
-				272BF50E229A754F00B70024 /* NewStudentLog.swift */,
-				272DC9B422BE7718008C2320 /* Media.swift */,
 				86DD24B0233A423C00BA171E /* FrontPage.swift */,
 				86DD24B2233A52C200BA171E /* FrontPageSectionHeader.swift */,
-				86AC0F2F23B7756500A4F1D2 /* ParentFeedback.swift */,
+				2714F1D9224F1FF900F1D1DF /* Invoice.swift */,
+				2739EAC5225FBBFD00EFA210 /* LeaveRequest.swift */,
+				2739EAC3225FBAD500EFA210 /* LeaveTypes.swift */,
+				27BC80E822641455004E5937 /* Library.swift */,
+				272DC9B422BE7718008C2320 /* Media.swift */,
+				27EF41B5223ACFEA00FA1267 /* Menu.swift */,
+				272BF508229A510F00B70024 /* MessageView.swift */,
+				272BF50E229A754F00B70024 /* NewStudentLog.swift */,
+				27115FB522463D1A00DECAA6 /* Notice.swift */,
 				769C446C265187BC0069D125 /* OnlineClass.swift */,
 				769C4470265199760069D125 /* OnlineClassSectionHeader.swift */,
+				86AC0F2F23B7756500A4F1D2 /* ParentFeedback.swift */,
+				273DD67D22655D0F00A013A4 /* Payment.swift */,
+				27D320A222619226005393B1 /* Result.swift */,
+				27FB15C3226C093100DC810C /* SectionHeader.swift */,
+				2714F1D3224F1C2900F1D1DF /* SimpleObject.swift */,
+				27F6D6DB224F769C0090DB91 /* Staff.swift */,
+				27F0B757225A541A00DD28EA /* Student.swift */,
+				272BF50A229A60CF00B70024 /* StudentLog.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -469,6 +480,7 @@
 				27033D582261DDB5001A20D1 /* StaffViewCell.swift */,
 				272BF50C229A615A00B70024 /* StudentLogViewCell.swift */,
 				2715803022B87FEB00601215 /* VideosViewCell.swift */,
+				76C8975F265C29BE008704BD /* AssignmentV2ViewCell.swift */,
 			);
 			path = Adapter;
 			sourceTree = "<group>";
@@ -626,6 +638,7 @@
 				2704363D226CB6BF003B4EB8 /* FeeDetailVC.swift in Sources */,
 				27EFD148227DFFF2006C7A34 /* ChangePasswordVC.swift in Sources */,
 				952B12F12222A7B90077C948 /* Common.swift in Sources */,
+				76C89763265C29D1008704BD /* AssignmentV2.swift in Sources */,
 				27D320A322619226005393B1 /* Result.swift in Sources */,
 				27BC80E722641438004E5937 /* LibraryViewCell.swift in Sources */,
 				273DD6762265581A00A013A4 /* InvoiceVC.swift in Sources */,
@@ -633,6 +646,7 @@
 				2717F490226A2BD100B7D5DF /* ProfileVC.swift in Sources */,
 				95FA0D5A2222F40A002D155F /* DashboardVC.swift in Sources */,
 				2714F1D8224F1CEE00F1D1DF /* ExamRoutine.swift in Sources */,
+				76C89767265C2CCF008704BD /* AssignmenV2SectionHeader.swift in Sources */,
 				27115FB422463A7500DECAA6 /* NoticeViewCell.swift in Sources */,
 				272BF509229A510F00B70024 /* MessageView.swift in Sources */,
 				044E129D229425F7009D60D9 /* DatePickerClass.swift in Sources */,
@@ -645,6 +659,7 @@
 				86DD24B3233A52C200BA171E /* FrontPageSectionHeader.swift in Sources */,
 				8658587723B87E5700696FD5 /* FeedbackConversationVC.swift in Sources */,
 				27F0B758225A541A00DD28EA /* Student.swift in Sources */,
+				76C8975D265C2911008704BD /* AssignmentV2VC.swift in Sources */,
 				27EF41B4223ACE5A00FA1267 /* MenuTableViewCell.swift in Sources */,
 				2715722B2298F0C9003EEFA0 /* MessageVC.swift in Sources */,
 				2739EAC6225FBBFD00EFA210 /* LeaveRequest.swift in Sources */,
@@ -686,6 +701,7 @@
 				2714F1D2224F1AF300F1D1DF /* Book.swift in Sources */,
 				27D32097226186B3005393B1 /* ResultVC.swift in Sources */,
 				273DD67C2265588600A013A4 /* PaymentViewCell.swift in Sources */,
+				76C89760265C29BE008704BD /* AssignmentV2ViewCell.swift in Sources */,
 				765CB47E2530E13300B3BD52 /* UITableView+Ext.swift in Sources */,
 				769C446A265183D50069D125 /* OnlineClassViewCell.swift in Sources */,
 				2715802922B877CF00601215 /* VideosVC.swift in Sources */,
