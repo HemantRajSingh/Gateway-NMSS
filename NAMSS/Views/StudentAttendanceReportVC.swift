@@ -44,6 +44,11 @@ class StudentAttendanceReportVC: UIViewController {
 //        let tapGesture = UITapGestureRecognizer(target:self,action:#selector(viewTapped(gestureRecognizer:)))
 //        view.addGestureRecognizer(tapGesture)
         
+        if #available(iOS 14, *) {
+            datePickerClass!.preferredDatePickerStyle = .wheels
+            datePickerClass!.sizeToFit()
+        }
+        
         datePicker.inputView = datePickerClass
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd"

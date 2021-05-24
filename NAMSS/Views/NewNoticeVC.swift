@@ -52,6 +52,13 @@ class NewNoticeVC: UIViewController {
         let tapGesture = UITapGestureRecognizer(target:self,action:#selector(viewTapped(gestureRecognizer:)))
         view.addGestureRecognizer(tapGesture)
         
+        if #available(iOS 14, *) {
+            datePickerClass1!.preferredDatePickerStyle = .wheels
+            datePickerClass1!.sizeToFit()
+            datePickerClass2!.preferredDatePickerStyle = .wheels
+            datePickerClass2!.sizeToFit()
+        }
+        
         imagePicker.delegate = self
         
         datePickerFrom.inputView = datePickerClass1

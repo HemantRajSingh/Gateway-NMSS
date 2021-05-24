@@ -71,10 +71,17 @@ class AttendanceVC: UIViewController {
         datePickerClass?.locale = Locale(identifier: "en_US_POSIX")
         datePickerClass?.calendar = Calendar(identifier: .iso8601)
         datePickerClass?.addTarget(self, action: #selector(StaffAttendanceReportVC.dateChanged(datePickerField:)), for: .valueChanged)
+        
+        if #available(iOS 14, *) {
+            datePickerClass!.preferredDatePickerStyle = .wheels
+            datePickerClass!.sizeToFit()
+        }
+        
         datePicker.inputView = datePickerClass
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd"
         datePicker.text = dateFormatter.string(from: Date())
+        
         showProgressBar(activityIndicator: self.activityIndicator)
         self.loadFaculty()
 //        self.loadDepartment()

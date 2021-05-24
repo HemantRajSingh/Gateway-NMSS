@@ -33,6 +33,11 @@ class AssignmentVC: UIViewController {
         datePickerClass?.calendar = Calendar(identifier: .iso8601)
         datePickerClass?.addTarget(self, action: #selector(dateChanged(datePickerField:)), for: .valueChanged)
         
+        if #available(iOS 14, *) {
+            datePickerClass!.preferredDatePickerStyle = .wheels
+            datePickerClass!.sizeToFit()
+        }
+        
         dateFormatter.dateFormat = "YYYY-MM-dd"
         today = dateFormatter.string(from: Date())
         dropdownDate.inputView = datePickerClass
