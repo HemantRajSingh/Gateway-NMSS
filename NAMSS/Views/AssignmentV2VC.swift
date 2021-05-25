@@ -86,7 +86,7 @@ class AssignmentV2VC:UIViewController,UITableViewDelegate,UITableViewDataSource 
         if indexPath.row == 0 {
             return 40
         } else {
-            let obj:AssignmentV2 = tableViewData[indexPath.section].sectionData[indexPath.row - 1]
+//            let obj:AssignmentV2 = tableViewData[indexPath.section].sectionData[indexPath.row - 1]
             return 80
         }
     }
@@ -96,6 +96,11 @@ class AssignmentV2VC:UIViewController,UITableViewDelegate,UITableViewDataSource 
             
         } else {
             let obj:AssignmentV2 = tableViewData[indexPath.section].sectionData[indexPath.row - 1]
+            let storyboard = AppStoryboard.ClassActivity.instance
+            let VC =  storyboard.instantiateViewController(withIdentifier: "AssignmentContentVC") as! AssignmentContentVC
+            VC.assignment = obj
+            self.dismiss(animated: true, completion: nil)
+            self.navigationController?.pushViewController(VC, animated: true)
             
         }
     }

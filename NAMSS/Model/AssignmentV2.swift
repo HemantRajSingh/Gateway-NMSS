@@ -8,9 +8,23 @@
 
 import Foundation
 
-class AssignmentV2 {
+class AssignmentV2: NSObject {
     
     var homeworkId, className,subjectName,homeworkDateEn,homeworkDate,homeworkDescription,teacherName,imageUrl,submissionDateEn,submissionDate,status: String;
+    
+    public override init() {
+        self.homeworkId = "";
+        self.className = "";
+        self.subjectName = "";
+        self.homeworkDateEn = "";
+        self.homeworkDate = "";
+        self.homeworkDescription = "";
+        self.teacherName = "";
+        self.imageUrl = "";
+        self.submissionDateEn = "";
+        self.submissionDate = "";
+        self.status = "";
+    }
     
     public init(homeworkId:String, className:String,subjectName:String,homeworkDateEn:String,homeworkDate:String,homeworkDescription:String,teacherName: String,imageUrl:String,submissionDateEn:String,submissionDate:String,status:String){
         self.homeworkId = homeworkId;

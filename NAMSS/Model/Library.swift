@@ -10,9 +10,9 @@ import UIKit
 
 class Library: NSObject {
     
-    var id,name,author,a1,a2,publisher,circularBookCount,issuedBookCount,availableBookCount,edition,publishedYear:String
+    var id,name,author,a1,a2,publisher,circularBookCount,issuedBookCount,availableBookCount,edition,publishedYear,bookDownloadUrl:String
     
-    init(id:String,name:String,author:String,a1:String,a2:String,publisher:String,circularBookCount:String,issuedBookCount:String,availableBookCount:String,edition:String,publishedYear:String){
+    init(id:String,name:String,author:String,a1:String,a2:String,publisher:String,circularBookCount:String,issuedBookCount:String,availableBookCount:String,edition:String,publishedYear:String,bookDownloadUrl:String){
         self.id = id
         self.name = name
         self.author = author
@@ -24,6 +24,7 @@ class Library: NSObject {
         self.availableBookCount = availableBookCount
         self.edition = edition
         self.publishedYear = publishedYear
+        self.bookDownloadUrl = bookDownloadUrl
     }
 
 }

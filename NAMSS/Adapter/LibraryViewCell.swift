@@ -16,6 +16,8 @@ class LibraryViewCell: UITableViewCell {
     @IBOutlet weak var txtPublisher: UILabel!
     @IBOutlet weak var txtAvailable: UILabel!
     @IBOutlet weak var txtIssued: UILabel!
+    @IBOutlet weak var imgDownload: UIImageView!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
