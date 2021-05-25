@@ -98,38 +98,6 @@
             endingLineNumber = "164"
             landmarkName = "urlSession(_:downloadTask:didFinishDownloadingTo:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "CE1ACDD5-F57E-4CE4-AE72-6C98322376E9 - f82906373b9be8a5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NAMSS.LibraryVC.urlSession(_: __C.NSURLSession, downloadTask: __C.NSURLSessionDownloadTask, didFinishDownloadingTo: Foundation.URL) -&gt; ()"
-                  moduleName = "NAMSS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ith/Desktop/nmss/NAMSS/Views/LibraryVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "162"
-                  endingLineNumber = "162"
-                  offsetFromSymbolStart = "3164">
-               </Location>
-               <Location
-                  uuid = "CE1ACDD5-F57E-4CE4-AE72-6C98322376E9 - f82906373b9be8a5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NAMSS.LibraryVC.urlSession(_: __C.NSURLSession, downloadTask: __C.NSURLSessionDownloadTask, didFinishDownloadingTo: Foundation.URL) -&gt; ()"
-                  moduleName = "NAMSS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ith/Desktop/nmss/NAMSS/Views/LibraryVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "162"
-                  endingLineNumber = "162"
-                  offsetFromSymbolStart = "3612">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -145,6 +113,150 @@
             startingLineNumber = "134"
             endingLineNumber = "134"
             landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5B9FFEED-6ABB-4A14-AED7-85BE8FF8B3D3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NAMSS/Views/LearningMaterialsVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "fnGetLearningMaterials()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EB63F79C-057E-4FF2-BC65-E2B00D79C3F6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NAMSS/Views/SubmitLearningMaterialVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "submitLink(sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "234AD0FE-6E68-4F21-8CF6-C22E50AC4E44"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NAMSS/Views/SubmitLearningMaterialVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "loadFaculty()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8DA38ADF-A6BD-40F1-8DB1-928A85B1186F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NAMSS/Views/SubmitLearningMaterialVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "loadMaterialTypes()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "92FCCC5E-80CF-49E4-852B-7654E43B1E2A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NAMSS/Views/SubmitLearningMaterialVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "loadMaterialTypes()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B85B2A74-EAE7-4740-9A17-3A58D639877B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NAMSS/Views/SubmitLearningMaterialVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "loadMaterialTypes()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B85B2A74-EAE7-4740-9A17-3A58D639877B - 6defcc925f56f795"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool, SwiftyJSON.JSON) -&gt; () in NAMSS.SubmitLearningMaterialVC.loadMaterialTypes() -&gt; ()"
+                  moduleName = "NAMSS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ith/Desktop/nmss/NAMSS/Views/SubmitLearningMaterialVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "508">
+               </Location>
+               <Location
+                  uuid = "B85B2A74-EAE7-4740-9A17-3A58D639877B - 878185a6c5e0caff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (NAMSS.SimpleObject) -&gt; () in closure #1 (Swift.Bool, SwiftyJSON.JSON) -&gt; () in NAMSS.SubmitLearningMaterialVC.loadMaterialTypes() -&gt; ()"
+                  moduleName = "NAMSS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ith/Desktop/nmss/NAMSS/Views/SubmitLearningMaterialVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "64">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5EDBF90D-88C1-4FB6-82DA-1CBEA2006034"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NAMSS/Views/SubmitLearningMaterialVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "loadFaculty()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

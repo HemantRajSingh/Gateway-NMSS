@@ -97,6 +97,10 @@
 		765CB47E2530E13300B3BD52 /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765CB47D2530E13300B3BD52 /* UITableView+Ext.swift */; };
 		7668A93626542EDD0099AA7B /* OnlineClassSubmitLinkVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7668A93526542EDD0099AA7B /* OnlineClassSubmitLinkVC.swift */; };
 		766A7EF4265D4B420004D9C9 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766A7EF3265D4B420004D9C9 /* PDFViewController.swift */; };
+		766A7EF7265D65F60004D9C9 /* LearningMaterialsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766A7EF6265D65F60004D9C9 /* LearningMaterialsVC.swift */; };
+		766A7EFA265D66330004D9C9 /* LearningMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766A7EF9265D66330004D9C9 /* LearningMaterial.swift */; };
+		766A7EFD265D67180004D9C9 /* MaterialViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766A7EFC265D67180004D9C9 /* MaterialViewCell.swift */; };
+		766A7F00265D7F410004D9C9 /* SubmitLearningMaterialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766A7EFF265D7F410004D9C9 /* SubmitLearningMaterialVC.swift */; };
 		76999756265C8AB700E099B3 /* AssignmentContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76999755265C8AB700E099B3 /* AssignmentContentVC.swift */; };
 		7699975A265C8F0F00E099B3 /* FileViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76999759265C8F0F00E099B3 /* FileViewCell.swift */; };
 		769C445926516EEB0069D125 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769C445826516EEB0069D125 /* String+Ext.swift */; };
@@ -230,6 +234,10 @@
 		765CB47D2530E13300B3BD52 /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
 		7668A93526542EDD0099AA7B /* OnlineClassSubmitLinkVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineClassSubmitLinkVC.swift; sourceTree = "<group>"; };
 		766A7EF3265D4B420004D9C9 /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
+		766A7EF6265D65F60004D9C9 /* LearningMaterialsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningMaterialsVC.swift; sourceTree = "<group>"; };
+		766A7EF9265D66330004D9C9 /* LearningMaterial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningMaterial.swift; sourceTree = "<group>"; };
+		766A7EFC265D67180004D9C9 /* MaterialViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialViewCell.swift; sourceTree = "<group>"; };
+		766A7EFF265D7F410004D9C9 /* SubmitLearningMaterialVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitLearningMaterialVC.swift; sourceTree = "<group>"; };
 		76999755265C8AB700E099B3 /* AssignmentContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentContentVC.swift; sourceTree = "<group>"; };
 		76999759265C8F0F00E099B3 /* FileViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewCell.swift; sourceTree = "<group>"; };
 		769C445826516EEB0069D125 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
@@ -329,6 +337,8 @@
 				2715802C22B8781D00601215 /* VideoHeaderView.swift */,
 				2715802822B877CF00601215 /* VideosVC.swift */,
 				952B12CF22229A3E0077C948 /* ViewController.swift */,
+				766A7EF6265D65F60004D9C9 /* LearningMaterialsVC.swift */,
+				766A7EFF265D7F410004D9C9 /* SubmitLearningMaterialVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -454,6 +464,7 @@
 				27F6D6DB224F769C0090DB91 /* Staff.swift */,
 				27F0B757225A541A00DD28EA /* Student.swift */,
 				272BF50A229A60CF00B70024 /* StudentLog.swift */,
+				766A7EF9265D66330004D9C9 /* LearningMaterial.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -490,6 +501,7 @@
 				27033D582261DDB5001A20D1 /* StaffViewCell.swift */,
 				272BF50C229A615A00B70024 /* StudentLogViewCell.swift */,
 				2715803022B87FEB00601215 /* VideosViewCell.swift */,
+				766A7EFC265D67180004D9C9 /* MaterialViewCell.swift */,
 			);
 			path = Adapter;
 			sourceTree = "<group>";
@@ -637,6 +649,7 @@
 				27F1DD22229A9E0700B54C52 /* AbsentViewCell.swift in Sources */,
 				27B3DD50226E17580047B416 /* NoticeContentVC.swift in Sources */,
 				273DD67E22655D0F00A013A4 /* Payment.swift in Sources */,
+				766A7EFD265D67180004D9C9 /* MaterialViewCell.swift in Sources */,
 				769C445926516EEB0069D125 /* String+Ext.swift in Sources */,
 				273DD6782265584900A013A4 /* PaymentVC.swift in Sources */,
 				769C4471265199760069D125 /* OnlineClassSectionHeader.swift in Sources */,
@@ -645,6 +658,7 @@
 				27115FB222462A9A00DECAA6 /* NoticeVC.swift in Sources */,
 				272BF507229A50E900B70024 /* MessageViewCell.swift in Sources */,
 				2704363D226CB6BF003B4EB8 /* FeeDetailVC.swift in Sources */,
+				766A7F00265D7F410004D9C9 /* SubmitLearningMaterialVC.swift in Sources */,
 				27EFD148227DFFF2006C7A34 /* ChangePasswordVC.swift in Sources */,
 				952B12F12222A7B90077C948 /* Common.swift in Sources */,
 				76C89763265C29D1008704BD /* AssignmentV2.swift in Sources */,
@@ -685,6 +699,7 @@
 				27043639226C971C003B4EB8 /* NewAssignmentVC.swift in Sources */,
 				27D3209D22618842005393B1 /* ExamRoutineVC.swift in Sources */,
 				2722E0D5226106DD00CCA3BB /* NewLeaveRequestVC.swift in Sources */,
+				766A7EF7265D65F60004D9C9 /* LearningMaterialsVC.swift in Sources */,
 				952B12F02222A7B90077C948 /* ApiServices.swift in Sources */,
 				2704363B226C9F30003B4EB8 /* AddNewAssignmentVC.swift in Sources */,
 				271422CE22996EA500B762DA /* MessageStudentViewCell.swift in Sources */,
@@ -724,6 +739,7 @@
 				27B9E20B2246B1D90098CC24 /* CalendarViewCell.swift in Sources */,
 				2714F1D4224F1C2900F1D1DF /* SimpleObject.swift in Sources */,
 				2715802D22B8781D00601215 /* VideoHeaderView.swift in Sources */,
+				766A7EFA265D66330004D9C9 /* LearningMaterial.swift in Sources */,
 				2714D5A3227DB7850013D1B3 /* PersonalAttendanceVC.swift in Sources */,
 				270FC404224DE94B00BEB51B /* MyPickerView.swift in Sources */,
 				27265E7F226B69F400BAC199 /* CollapsibleTableViewHeader.swift in Sources */,

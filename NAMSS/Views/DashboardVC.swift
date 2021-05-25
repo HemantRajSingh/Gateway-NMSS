@@ -61,6 +61,7 @@ class DashboardVC: UIViewController {
             menus.append(Menu(menuId:4,view:"attendanceVC", menuImage: #imageLiteral(resourceName: "ic_attendance2"), menuTitle: "Attendance", menuDesc: "Class Attendance"))
             menus.append(Menu(menuId:8,view:"OnlineClassVC", menuImage: #imageLiteral(resourceName: "ic_onlineclass"), menuTitle: "Online Classroom", menuDesc: "Online Classroom"))
             menus.append(Menu(menuId:5,view:"assignmentVC", menuImage: #imageLiteral(resourceName: "ic_invoice"), menuTitle: "Assignment", menuDesc: "Assignment"))
+            menus.append(Menu(menuId:9,view:"SubmitLearningMaterialVC", menuImage: #imageLiteral(resourceName: "ic_download"), menuTitle: "Learning Materials", menuDesc: "Add Learning Materials"))
             menus.append(Menu(menuId:6,view:"leaveRequestVC", menuImage: #imageLiteral(resourceName: "ic_assignment"), menuTitle: "Leave Requests", menuDesc: "Leave Requests"))
             menus.append(Menu(menuId:8,view:"messageVC", menuImage: #imageLiteral(resourceName: "ic_student"), menuTitle: "Message", menuDesc: "Send Message"))
             menus.append(Menu(menuId:2,view:"parentFeedbackVC", menuImage: #imageLiteral(resourceName: "ic_assignment"), menuTitle: "Parent Feedback", menuDesc: "Feedbacks"))
@@ -71,6 +72,7 @@ class DashboardVC: UIViewController {
             menus.append(Menu(menuId:8,view:"invoiceVC", menuImage: #imageLiteral(resourceName: "ic_invoice-1"), menuTitle: "Fee Details", menuDesc: "Fee Details"))
             menus.append(Menu(menuId:4,view:"parentFeedbackVC", menuImage: #imageLiteral(resourceName: "ic_assignment"), menuTitle: "Parent Feedback", menuDesc: "Feedbacks"))
             menus.append(Menu(menuId:9,view:"assignmentVC", menuImage: #imageLiteral(resourceName: "ic_invoice"), menuTitle: "Assignment", menuDesc: "Assignment"))
+            menus.append(Menu(menuId:9,view:"LearningMaterialsVC", menuImage: #imageLiteral(resourceName: "ic_download"), menuTitle: "Learning Materials", menuDesc: "View Learning Materials"))
             menus.append(Menu(menuId:10,view:"resultVC", menuImage: #imageLiteral(resourceName: "ic_results"), menuTitle: "Result", menuDesc: "Result"))
             DispatchQueue.main.async {
                 self.fnGetStudentInfo(url: appUrl + "GetStudentInfo?id=" + Common.shared.studentId)
@@ -220,7 +222,7 @@ class DashboardVC: UIViewController {
             let storyboard2 = UIStoryboard(name: "MainPage", bundle: nil)
             let VC = storyboard2.instantiateViewController(withIdentifier: viewName)
             self.navigationController?.pushViewController(VC, animated: true)
-        } else if(viewName == "OnlineClassVC"){
+        } else if(viewName == "OnlineClassVC" || viewName == "LearningMaterialsVC" || viewName == "SubmitLearningMaterialVC"){
             storyboard = AppStoryboard.ClassActivity.instance
             let VC = storyboard.instantiateViewController(withIdentifier: viewName)
             self.navigationController?.pushViewController(VC, animated: true)
