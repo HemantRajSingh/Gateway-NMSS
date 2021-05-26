@@ -154,7 +154,7 @@ class SubmitLearningMaterialVC: UIViewController {
     }
     
     @objc func submitLink(sender: UIBarButtonItem){
-        
+        showProgressBar(state: self, activityIndicator: self.activityIndicator)
         var json = [String:String]()
         json["FacultyId"] = self.facultyId
         json["ProgramId"] = self.departmentId
@@ -176,13 +176,19 @@ class SubmitLearningMaterialVC: UIViewController {
         json["DocumentUrl"] = base64String
         
         fnPostApiWithJson(url: appUrl + "SubmitLearningMaterials", json: JSON(json), completionHandler: {(res,json)->Void in
+            hideProgressBar(activityIndicator: self.activityIndicator)
             if(res){
-                showToast(state: self, message: "\(self.txtRemarks.text ?? "") added!")
-                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
-                    self.navigationController?.popViewController(animated: true)
+                if(json["status"].stringValue == "true"){
+                    showToast(state: self, message: "\(self.txtRemarks.text ?? "") added!")
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                } else {
+                    let message  = json["message"].stringValue
+                    showToast(state: self, message: "Error adding \(self.dropdownMaterial.text ?? ""). \(message)")
                 }
             }else{
-                showToast(state: self, message: "Error Adding \(self.dropdownMaterial.text ?? ""). Please Try again")
+                showToast(state: self, message: "Error adding \(self.dropdownMaterial.text ?? ""). Please Try again")
             }
         })
     }
