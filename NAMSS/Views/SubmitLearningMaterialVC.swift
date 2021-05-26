@@ -37,6 +37,7 @@ class SubmitLearningMaterialVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = "Submit Assignment"
         let doneButton = UIBarButtonItem(title: "Submit", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.submitLink(sender:)))
         self.navigationItem.rightBarButtonItem = doneButton
         
@@ -97,7 +98,7 @@ class SubmitLearningMaterialVC: UIViewController {
     func openCamera(){
         if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerController.SourceType.camera)) {
             imagePicker.sourceType = UIImagePickerController.SourceType.camera
-            imagePicker.allowsEditing = true
+//            imagePicker.allowsEditing = true
             self.present(imagePicker, animated: true, completion: nil)
         } else {
             let alert  = UIAlertController(title: "Warning", message: "You don't have camera", preferredStyle: .alert)
@@ -120,7 +121,7 @@ class SubmitLearningMaterialVC: UIViewController {
 //        }
 
         imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
-        imagePicker.allowsEditing = true
+//        imagePicker.allowsEditing = true
         self.present(imagePicker, animated: true, completion: nil)
     }
     
@@ -168,7 +169,7 @@ class SubmitLearningMaterialVC: UIViewController {
             base64String = txtDocumentLink.text ?? ""
         } else {
             if(self.materialId.lowercased() == "image"){
-                base64String = "data:application/image;base64," + base64String
+//                base64String = "data:image/jpeg;base64," + base64String
             } else if(self.materialId.lowercased() == "pdf") {
                 base64String = "data:application/pdf;base64," + base64String
             }
@@ -296,12 +297,19 @@ extension SubmitLearningMaterialVC : UITextFieldDelegate, UIPickerViewDelegate,U
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        var imageName = ""
+        if let asset = info[.imageURL] as? URL {
+            imageName = asset.lastPathComponent
+            
+        }
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             let imageData:Data = pickedImage.pngData()!
-            base64String = imageData.base64EncodedString()
+            base64String = imageData.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))
         }
-        
-        self.txtFileName.text = "Image selected"
+        let fileExtension = imageName.split(separator: ".").last ?? ""
+        base64String = "data:image/\(fileExtension);base64," + base64String
+        imageName = imageName.isEmpty ? "new image" : imageName.prefix(18) + "...." + fileExtension
+        self.txtFileName.text = "\(imageName) selected"
         
         picker.dismiss(animated: true, completion: nil)
     }
@@ -320,7 +328,7 @@ extension SubmitLearningMaterialVC : UIDocumentMenuDelegate,UIDocumentPickerDele
         
         do {
             let fileData:Data = try Data.init(contentsOf: myURL)
-            base64String = fileData.base64EncodedString()
+            base64String = fileData.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))
             self.txtFileName.text = "\(myURL.lastPathComponent) selected"
         } catch {
             print("The file could not be loaded")

@@ -60,7 +60,8 @@ class DashboardVC: UIViewController {
             menus.append(Menu(menuId:3,view:"personalAttendanceVC", menuImage: #imageLiteral(resourceName: "ic_attendance2"), menuTitle: "Attendance", menuDesc: "Personal Attendance"))
             menus.append(Menu(menuId:4,view:"attendanceVC", menuImage: #imageLiteral(resourceName: "ic_attendance2"), menuTitle: "Attendance", menuDesc: "Class Attendance"))
             menus.append(Menu(menuId:8,view:"OnlineClassVC", menuImage: #imageLiteral(resourceName: "ic_onlineclass"), menuTitle: "Online Classroom", menuDesc: "Online Classroom"))
-            menus.append(Menu(menuId:5,view:"assignmentVC", menuImage: #imageLiteral(resourceName: "ic_invoice"), menuTitle: "Assignment", menuDesc: "Assignment"))
+            menus.append(Menu(menuId:5,view:"assignmentVC", menuImage: #imageLiteral(resourceName: "ic_invoice"), menuTitle: "Assignment", menuDesc: "Add Assignment"))
+            menus.append(Menu(menuId:9,view:"AssignmentTeacherVC", menuImage: #imageLiteral(resourceName: "ic_invoice"), menuTitle: "View Assignment", menuDesc: "View Assignment"))
             menus.append(Menu(menuId:9,view:"SubmitLearningMaterialVC", menuImage: #imageLiteral(resourceName: "ic_download"), menuTitle: "Learning Materials", menuDesc: "Add Learning Materials"))
             menus.append(Menu(menuId:6,view:"leaveRequestVC", menuImage: #imageLiteral(resourceName: "ic_assignment"), menuTitle: "Leave Requests", menuDesc: "Leave Requests"))
             menus.append(Menu(menuId:8,view:"messageVC", menuImage: #imageLiteral(resourceName: "ic_student"), menuTitle: "Message", menuDesc: "Send Message"))
@@ -222,7 +223,7 @@ class DashboardVC: UIViewController {
             let storyboard2 = UIStoryboard(name: "MainPage", bundle: nil)
             let VC = storyboard2.instantiateViewController(withIdentifier: viewName)
             self.navigationController?.pushViewController(VC, animated: true)
-        } else if(viewName == "OnlineClassVC" || viewName == "LearningMaterialsVC" || viewName == "SubmitLearningMaterialVC"){
+        } else if(viewName == "OnlineClassVC" || viewName == "LearningMaterialsVC" || viewName == "SubmitLearningMaterialVC" || viewName == "AssignmentTeacherVC"){
             storyboard = AppStoryboard.ClassActivity.instance
             let VC = storyboard.instantiateViewController(withIdentifier: viewName)
             self.navigationController?.pushViewController(VC, animated: true)

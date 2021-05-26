@@ -20,12 +20,12 @@ class AssignmentV2VC:UIViewController,UITableViewDelegate,UITableViewDataSource 
         self.title = "Assignment"
         
         tblTable.tableFooterView = UIView()
+        self.fnShowAssignmentsV2()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.fnShowAssignmentsV2()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

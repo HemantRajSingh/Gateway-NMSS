@@ -156,6 +156,41 @@ func fnPostApiWithUrlEcoding(url:String, completionHandler: @escaping (Bool,JSON
     }
 }
 
+func fnPostApiWithJsonEncoding(url:String, json:JSON, completionHandler: @escaping (Bool,JSON)->Void) -> Void{
+    
+    var request = URLRequest(url: URL(string: url)!)
+    request.httpMethod = "POST"
+    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    do{
+    request.httpBody = try json.rawData()
+    }
+    catch{
+        
+    }
+    
+    var res:JSON? = nil
+    Alamofire.request(request)
+        .validate { request, response, data in
+            return .success
+        }
+        .responseJSON { response in
+            switch response.result {
+            case .success:
+                if let value = response.result.value {
+                    res = JSON(value)
+                    if(res!["ExceptionType"].stringValue == "" && res!["Message"].stringValue == ""){
+                        completionHandler(true,res ?? [])
+                    }else{
+                        completionHandler(false,res ?? [])
+                    }
+                }
+            case .failure(let error):
+                print(error)
+                completionHandler(false,res ?? [])
+            }
+    }
+}
+
 func fnPostApiWithJson(url:String, json:JSON, completionHandler: @escaping (Bool,JSON)->Void) -> Void{
     
     var request = URLRequest(url: URL(string: url)!)

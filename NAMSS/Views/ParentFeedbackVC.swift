@@ -101,7 +101,7 @@ class ParentFeedbackVC: UIViewController {
 extension ParentFeedbackVC : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(list.count == 0){
-            self.tblFeedback.setEmptyMessage("No any Feedbacks.")
+            self.tblFeedback.setEmptyMessage("No any data available!")
         } else {
             self.tblFeedback.restore()
         }

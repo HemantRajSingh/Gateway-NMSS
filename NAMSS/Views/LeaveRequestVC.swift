@@ -71,6 +71,11 @@ class LeaveRequestVC: UIViewController {
 
 extension LeaveRequestVC : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if(list.count == 0){
+            tblLeaveRequests.setEmptyMessage("No data available!")
+        } else {
+            tblLeaveRequests.restore()
+        }
         return list.count
     }
     
