@@ -1018,6 +1018,7 @@
                         <outlet property="dropdownProgram" destination="wD6-7S-f4i" id="InY-Bt-AbZ"/>
                         <outlet property="dropdownSection" destination="qlZ-FG-JqB" id="wIU-90-qg2"/>
                         <outlet property="dropdownSubject" destination="6Jt-zU-Ti3" id="CVW-tj-hJr"/>
+                        <outlet property="labelDocumentLink" destination="nmU-ld-UBn" id="qI4-w4-EUX"/>
                         <outlet property="txtDocumentLink" destination="hea-z7-zYM" id="ApG-FT-prH"/>
                         <outlet property="txtFileName" destination="lm2-Vm-Nl0" id="4ql-dD-kvq"/>
                         <outlet property="txtRemarks" destination="WbB-zN-fgx" id="kkp-ti-3yW"/>
