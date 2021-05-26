@@ -55,6 +55,35 @@ class LearningMaterialsVC: UIViewController {
                 }
         }
     }
+    
+    func showImage(url:String)
+    {
+        let plusIcon = UIImage(named: "")
+        let newImageView = UIImageView(image: plusIcon)
+        newImageView.kf.setImage(with: URL(string: url))
+        newImageView.frame = UIScreen.main.bounds
+        newImageView.backgroundColor = .black
+        newImageView.contentMode = .scaleAspectFit
+        newImageView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage(sender:)))
+        newImageView.addGestureRecognizer(tap)
+        let swipeGestureRecognizerDown = UISwipeGestureRecognizer(target: self, action: #selector(dismissFullscreenImageOnScroll(sender:)))
+        newImageView.addGestureRecognizer(swipeGestureRecognizerDown)
+        self.view.addSubview(newImageView)
+        self.navigationController?.isNavigationBarHidden = true
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    @objc func dismissFullscreenImage(sender: UITapGestureRecognizer) {
+        self.navigationController?.isNavigationBarHidden = false
+        self.tabBarController?.tabBar.isHidden = false
+        sender.view?.removeFromSuperview()
+    }
+    @objc func dismissFullscreenImageOnScroll(sender: UISwipeGestureRecognizer) {
+        self.navigationController?.isNavigationBarHidden = false
+        self.tabBarController?.tabBar.isHidden = false
+        sender.view?.removeFromSuperview()
+    }
 
 }
 
@@ -69,7 +98,7 @@ extension LearningMaterialsVC : UITableViewDelegate, UITableViewDataSource, URLS
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 130
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -98,20 +127,24 @@ extension LearningMaterialsVC : UITableViewDelegate, UITableViewDataSource, URLS
         let obj:LearningMaterial = list[indexPath.row]
         if(obj.documentUrl != "" && obj.documentUrl != "null"){
             guard let downloadUrl = URL(string: obj.documentUrl.replacingOccurrences(of: "~", with: baseUrl)) else {return}
-            let documentsPath = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
-            let destinationUrl = documentsPath.appendingPathComponent(downloadUrl.lastPathComponent)
-            
-            if FileManager.default.fileExists(atPath: destinationUrl.absoluteString) {
-                DispatchQueue.main.async {
-                    let pdfViewController = PDFViewController(pdfUrl: destinationUrl)
-//                    pdfViewController.pdfURL = destinationUrl
-                    self.present(pdfViewController, animated: true, completion: nil)
-                }
+            if(obj.materialType.lowercased() == "image"){
+                self.showImage(url: downloadUrl.absoluteString)
             } else {
-                showProgressBar(state: self, activityIndicator: self.activityIndicator)
-                let urlSession = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue())
-                let downloadTask = urlSession.downloadTask(with: downloadUrl)
-                downloadTask.resume()
+                let documentsPath = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
+                let destinationUrl = documentsPath.appendingPathComponent(downloadUrl.lastPathComponent)
+                
+                if FileManager.default.fileExists(atPath: destinationUrl.absoluteString) {
+                    DispatchQueue.main.async {
+                        let pdfViewController = PDFViewController(pdfUrl: destinationUrl)
+    //                    pdfViewController.pdfURL = destinationUrl
+                        self.present(pdfViewController, animated: true, completion: nil)
+                    }
+                } else {
+                    showProgressBar(state: self, activityIndicator: self.activityIndicator)
+                    let urlSession = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue())
+                    let downloadTask = urlSession.downloadTask(with: downloadUrl)
+                    downloadTask.resume()
+                }
             }
         }
     }
