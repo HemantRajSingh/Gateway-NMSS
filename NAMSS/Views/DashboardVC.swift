@@ -274,7 +274,7 @@ class DashboardVC: UIViewController {
                                 if(split.count > 1){
                                     let imageData = NSData(base64Encoded: String(split[1]))
                                     if imageData != nil{
-                                        self.imgSchoolPic.contentMode = UIView.ContentMode.scaleToFill
+                                        self.imgSchoolPic.contentMode = .scaleAspectFill
                                         self.imgSchoolPic.image = UIImage(data: imageData! as Data)
                                     }
                                 }
@@ -299,6 +299,9 @@ extension DashboardVC: UICollectionViewDataSource, UICollectionViewDelegateFlowL
             return UICollectionViewCell()
         }
         cell.imgMenu.image = menus[indexPath.row].menuImage
+        if menus[indexPath.row].menuTitle == "Learning Materials" {
+            cell.imgMenu.tintColor = UIColor.black
+        }
         cell.imgMenu.clipsToBounds = true
         cell.txtMenuTitle.text = menus[indexPath.row].menuTitle
         cell.txtMenuDesc.text = menus[indexPath.row].menuDesc
