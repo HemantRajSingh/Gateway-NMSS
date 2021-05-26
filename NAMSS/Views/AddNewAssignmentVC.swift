@@ -14,6 +14,9 @@ class AddNewAssignmentVC: UIViewController {
 
     let activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
     var subjectName = String()
+    var classId = String()
+    var sectionId = String()
+    var subjectId = String()
     let dateFormatter = DateFormatter()
     @IBOutlet weak var txtTitle: UILabel!
     @IBOutlet weak var txtDesc: UITextView!
@@ -45,9 +48,9 @@ class AddNewAssignmentVC: UIViewController {
         var json = [String:String]()
         dateFormatter.dateFormat = "YYYY-MM-dd"
         let date = dateFormatter.string(from: Date())
-        json["ClassId"] = Common.shared.classId
-        json["SectionId"] = Common.shared.sectionId
-        json["SubjectId"] = Common.shared.subjectId
+        json["ClassId"] = self.classId
+        json["SectionId"] = self.sectionId
+        json["SubjectId"] = self.subjectId
         json["SubjectName"] = txtTitle.text ?? ""
         json["HomeWorkDate"] = date
         json["HomeWorkDescription"] = txtDesc.text ?? ""

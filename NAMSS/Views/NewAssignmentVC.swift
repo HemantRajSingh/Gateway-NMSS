@@ -20,7 +20,7 @@ class NewAssignmentVC: UIViewController {
     @IBOutlet weak var dropdownDepartment: UITextField!
     @IBOutlet weak var dropdownClass: UITextField!
     @IBOutlet weak var dropdownSection: UITextField!
-    var facultyId = "",departmentId = ""
+    var facultyId = "",departmentId = "",classId = "",sectionId = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,6 @@ class NewAssignmentVC: UIViewController {
         self.tblSubject.dataSource = self
         self.tblSubject.tableFooterView = UIView()
         self.loadFaculty()
-        self.loadDepartment()
     }
     
     @IBAction func btnLoad(_ sender: Any) {
@@ -45,6 +44,7 @@ class NewAssignmentVC: UIViewController {
         var facultyList = [SimpleObject]()
         fnGetApi(url: appUrl + "GetFaculty", completionHandler: {(res,json)->Void in
             if(res == true){
+                self.loadDepartment()
                 for (index,subJson):(String, JSON) in json {
                     facultyList.append(SimpleObject(id: subJson["FACULTYID"].stringValue, name: subJson["FACULTYNAME"].stringValue))
                 }
@@ -84,7 +84,7 @@ class NewAssignmentVC: UIViewController {
                     classList.append(SimpleObject(id: subJson["CLASSID"].stringValue, name: subJson["CLASSNAME"].stringValue))
                 }
                 self.dropdownClass.loadDropdownData(data: classList, type:"class", completionHandler: {(res) in
-                    Common.shared.classId = res.id
+                    self.classId = res.id
                     self.loadSection()
                 })
             }else{
@@ -96,13 +96,13 @@ class NewAssignmentVC: UIViewController {
     
     func loadSection(){
         var sectionList = [SimpleObject]()
-        fnGetApi(url: appUrl + "GetSectionByClass?classid=\(Common.shared.classId)", completionHandler: {(res,json)->Void in
+        fnGetApi(url: appUrl + "GetSectionByClass?classid=\(self.classId)", completionHandler: {(res,json)->Void in
             if(res == true){
                 for (index,subJson):(String, JSON) in json {
                     sectionList.append(SimpleObject(id: subJson["SECTIONID"].stringValue, name: subJson["SECTIONNAME"].stringValue))
                 }
                 self.dropdownSection.loadDropdownData(data: sectionList, type:"section", completionHandler: {(res) in
-                    Common.shared.sectionId = res.id
+                    self.sectionId = res.id
                     hideProgressBar(activityIndicator: self.activityIndicator)
                     self.fnDisplaySubjectList()
                 })
@@ -115,7 +115,7 @@ class NewAssignmentVC: UIViewController {
     
     func fnDisplaySubjectList(){
         self.list.removeAll()
-        let url = appUrl + "GetSubjectList?facultyid=\(self.facultyId)&departmentid=\(self.departmentId)&classid=\(Common.shared.classId)&sectionid=\(Common.shared.sectionId)"
+        let url = appUrl + "GetSubjectList?facultyid=\(self.facultyId)&departmentid=\(self.departmentId)&classid=\(self.classId)&sectionid=\(self.sectionId)"
         showProgressBar(state:self,activityIndicator: self.activityIndicator)
         Alamofire.request(url, method: .get)
             .validate { request, response, data in
@@ -159,7 +159,10 @@ extension NewAssignmentVC : UITableViewDelegate, UITableViewDataSource{
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let VC =  storyboard.instantiateViewController(withIdentifier: "addNewAssignmentVC") as! AddNewAssignmentVC
         VC.subjectName = list[indexPath.row].name
-        Common.shared.subjectId = list[indexPath.row].id
+        VC.classId = self.classId
+        VC.sectionId = self.sectionId
+        VC.subjectId = list[indexPath.row].id
+//        Common.shared.subjectId = list[indexPath.row].id
         self.navigationController?.pushViewController(VC, animated: true)
     }
     
